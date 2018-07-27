@@ -47,12 +47,10 @@ public class RootClass extends HttpServlet {
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         servletPath = request.getServletPath();
         method = request.getMethod();
-        for (String methods : requestMethod) {
-            if (method.equalsIgnoreCase(methods)) {
-                doGet(request,response);
-            } else if (method.equalsIgnoreCase(methods)) {
-                doPost(request,response);
-            }
+        if ("Get".equalsIgnoreCase(method)) {
+            doGet(request,response);
+        } else if ("Post".equalsIgnoreCase(methods)) {
+            doPost(request,response);
         }
     }
     
